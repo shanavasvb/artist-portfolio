@@ -147,10 +147,8 @@ artist-portfolio/
 ## 👨‍💻 Developer
 
 **Created by**: Shanavas V Basheer
-**College**: Kothamangalam  
-**Department**: MCA  
-**Contest**: Takshak Web Design Competition  
-**Achievement**: 🏆 First Prize Winner
+**College**: Cusat  
+**Department**: DDUKK  
 
 ## 📄 License
 
