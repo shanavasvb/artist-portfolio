@@ -13,6 +13,7 @@
     --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --border-radius: 12px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --text-color-muted: rgba(255,255,255,0.3);
 }
 
 [data-theme="dark"] {
@@ -780,13 +781,13 @@ section {
 /* Quotes Section */
 .quotes {
     background: var(--gradient);
-    color: white;
+    color:var(--bg-primary);
     text-align: center;
 }
 
 .quotes .section-title,
 .quotes .section-subtitle {
-    color: white;
+    color: var(--bg-primary);
 }
 
 .quotes-carousel {
@@ -824,7 +825,7 @@ section {
 .quote-slide blockquote::after {
     content: '"';
     font-size: 4rem;
-    color: rgba(255,255,255,0.3);
+    color: var(--text-color-muted);
     position: absolute;
     top: -10px;
 }
@@ -845,9 +846,9 @@ section {
 }
 
 .quote-btn {
-    background: rgba(255,255,255,0.2);
+    background: var(--text-color-muted);
     border: none;
-    color: white;
+    color: var(--bg-primary);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -859,7 +860,7 @@ section {
 }
 
 .quote-btn:hover {
-    background: rgba(255,255,255,0.3);
+    background: var(--text-color-muted);
 }
 
 .quote-indicators {
@@ -871,13 +872,13 @@ section {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.4);
+    background: var(--text-color-muted);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .quote-indicator.active {
-    background: white;
+    background: var(--bg-primary);
 }
 
 /* Modal */
