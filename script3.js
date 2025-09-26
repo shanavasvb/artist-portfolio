@@ -653,6 +653,59 @@ function initializeTextEffects() {
     });
 }
 
+  let currentQuoteIndex = 0;
+
+  function changeQuote(direction) {
+    const slides = document.querySelectorAll('.quote-slide');
+    const totalSlides = slides.length;
+
+    // Remove active class from current slide
+    slides[currentQuoteIndex].classList.remove('active');
+
+    // Calculate new index
+    currentQuoteIndex = (currentQuoteIndex + direction + totalSlides) % totalSlides;
+
+    // Add active class to new slide
+    slides[currentQuoteIndex].classList.add('active');
+
+    updateIndicators();
+  }
+
+  function createIndicators() {
+    const slides = document.querySelectorAll('.quote-slide');
+    const indicatorContainer = document.getElementById('quote-indicators');
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('quote-indicator');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToQuote(index));
+      indicatorContainer.appendChild(dot);
+    });
+  }
+
+  function updateIndicators() {
+    const indicators = document.querySelectorAll('.quote-indicator');
+    indicators.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentQuoteIndex);
+    });
+  }
+
+  function goToQuote(index) {
+    const slides = document.querySelectorAll('.quote-slide');
+    if (index >= 0 && index < slides.length) {
+      slides[currentQuoteIndex].classList.remove('active');
+      currentQuoteIndex = index;
+      slides[currentQuoteIndex].classList.add('active');
+      updateIndicators();
+    }
+  }
+
+  // Initialize on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', () => {
+    createIndicators();
+  });
+
 // Masonry Layout
 function initializeMasonry() {
   const gallery = document.getElementById('gallery-grid');
