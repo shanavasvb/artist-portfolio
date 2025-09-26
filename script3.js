@@ -490,29 +490,33 @@ function animateStats() {
 // Skill Bars Animation
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-bar');
-    
+
     if (skillBars.length === 0) return;
-    
-    const skillsObserver = new IntersectionObserver((entries) => {
+
+    const skillsObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const bar = entry.target;
+                const progress = bar.querySelector('.skill-progress');
                 const level = bar.getAttribute('data-level') || '0';
-                bar.style.width = level + '%';
-                
-                // Add labels if they exist
-                const label = bar.parentElement.querySelector('.skill-level');
-                if (label) {
-                    label.style.opacity = '1';
+
+                if (progress) {
+                    progress.style.width = level + '%';
                 }
+
+                // Optional: Unobserve after animating
+                observer.unobserve(bar);
             }
         });
+    }, {
+        threshold: 0.3 // Adjust as needed
     });
-    
+
     skillBars.forEach(bar => {
         skillsObserver.observe(bar);
     });
 }
+
   function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
