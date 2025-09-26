@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frida Kahlo - Artist Portfolio</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="paint-brush">
+                <div class="brush-handle"></div>
+                <div class="brush-tip"></div>
+                <div class="paint-drop"></div>
+            </div>
+            <p>Loading Masterpiece...</p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Frida</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#quotes" class="nav-link">Quotes</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-switcher" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="audio-toggle" title="Toggle Audio">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text animate-on-scroll">
+                <h1 class="hero-title">
+                    <span class="title-line">Frida</span>
+                    <span class="title-line">Kahlo</span>
+                </h1>
+                <p class="hero-subtitle">Surrealist • Painter • Icon</p>
+                <p class="hero-description">
+                    "I paint my own reality. The only thing I know is that I paint because I need to, 
+                    and I paint whatever passes through my head without any other consideration."
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('gallery')">
+                        <i class="fas fa-palette"></i> View Gallery
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                        <i class="fas fa-heart"></i> Her Story
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image animate-on-scroll">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800" alt="Frida Kahlo">
+                    <div class="image-overlay">
+                        <div class="floating-elements">
+                            <div class="float-element" style="--delay: 0s">🌺</div>
+                            <div class="float-element" style="--delay: 0.5s">🎨</div>
+                            <div class="float-element" style="--delay: 1s">💀</div>
+                            <div class="float-element" style="--delay: 1.5s">🌿</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">The Artist Behind the Legend</h2>
+                <p class="section-subtitle">Exploring the life and passion of Mexico's most celebrated painter</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <div class="about-card">
+                        <h3>Early Life & Tragedy</h3>
+                        <p>Born on July 6, 1907, in Coyoacán, Mexico, Frida Kahlo's life was marked by physical suffering and emotional turmoil that would fuel her artistic expression. A childhood bout with polio and a devastating bus accident at 18 left her with lifelong health issues.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>Artistic Journey</h3>
+                        <p>Confined to bed during her recovery, Frida began painting with a specially designed easel. Her self-portraits became a way to explore identity, pain, and the human condition. She painted 143 works, 55 of which were self-portraits.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>Cultural Impact</h3>
+                        <p>Frida's work transcends art, becoming a symbol of Mexican culture, feminism, and resilience. Her unflinching self-examination and celebration of indigenous Mexican culture continue to inspire artists worldwide.</p>
+                    </div>
+                </div>
+                
+                <div class="about-stats animate-on-scroll">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="143">0</div>
+                        <div class="stat-label">Artworks Created</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="55">0</div>
+                        <div class="stat-label">Self-Portraits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="47">0</div>
+                        <div class="stat-label">Years of Life</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="9">0</div>
+                        <div class="stat-label">Operations Endured</div>
+                    </div>
+                </div>
+
+                <div class="skills-section animate-on-scroll">
+                    <h3>Artistic Techniques</h3>
+                    <div class="skill-item">
+                        <span>Oil Painting</span>
+                        <div class="skill-bar" data-level="95">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Self-Portraiture</span>
+                        <div class="skill-bar" data-level="100">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Symbolism</span>
+                        <div class="skill-bar" data-level="90">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Mexican Folk Art</span>
+                        <div class="skill-bar" data-level="85">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Masterpiece Gallery</h2>
+                <p class="section-subtitle">A curated collection of Frida's most iconic works</p>
+            </div>
+            
+            <div class="gallery-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="self-portraits">Self-Portraits</button>
+                <button class="filter-btn" data-filter="still-life">Still Life</button>
+                <button class="filter-btn" data-filter="portraits">Portraits</button>
+                <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery items will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Life Journey</h2>
+                <p class="section-subtitle">Key moments that shaped the artist</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item animate-on-scroll" data-year="1907">
+                    <div class="timeline-content">
+                        <h3>Birth in Coyoacán</h3>
+                        <p>Born Magdalena Carmen Frida Kahlo y Calderón in the Blue House, which would become her lifelong home and studio.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll" data-year="1913">
+                    <div class="timeline-content">
+                        <h3>Polio Strikes</h3>
+                        <p>Contracted polio at age 6, leaving her right leg thinner than the left - a source of lifelong insecurity masked by long skirts.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll" data-year="1925">
+                    <div class="timeline-content">
+                        <h3>The Accident</h3>
+                        <p>A devastating bus accident at 18 left her with multiple injuries, beginning her journey with chronic pain and numerous surgeries.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll" data-year="1929">
+                    <div class="timeline-content">
+                        <h3>Marriage to Diego Rivera</h3>
+                        <p>Married the famous muralist Diego Rivera, beginning a tumultuous relationship that would define much of her life and art.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll" data-year="1938">
+                    <div class="timeline-content">
+                        <h3>First Solo Exhibition</h3>
+                        <p>Her first solo exhibition in New York was a success, with André Breton declaring her a Surrealist, though she rejected the label.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll" data-year="1954">
+                    <div class="timeline-content">
+                        <h3>Final Masterpiece</h3>
+                        <p>Died at age 47, leaving behind "Viva la Vida" as her final work - a celebration of life despite her suffering.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes" class="quotes">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Words of Wisdom</h2>
+                <p class="section-subtitle">Profound thoughts from a revolutionary artist</p>
+            </div>
+            
+            <div class="quotes-carousel" id="quotes-carousel">
+                <div class="quote-slide active">
+                    <blockquote>
+                        "I am my own muse, my own subject. I know myself better than anyone else. I am the one who knows how to paint myself best."
+                    </blockquote>
+                </div>
+                <div class="quote-slide">
+                    <blockquote>
+                        "Feet, what do I need you for when I have wings to fly?"
+                    </blockquote>
+                </div>
+                <div class="quote-slide">
+                    <blockquote>
+                        "I paint flowers so they will not die."
+                    </blockquote>
+                </div>
+                <div class="quote-slide">
+                    <blockquote>
+                        "I hope the exit is joyful - and I hope never to return - FRIDA"
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="quotes-navigation">
+                <button class="quote-btn prev" onclick="changeQuote(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="quote-indicators" id="quote-indicators">
+                    <!-- Indicators will be generated dynamically -->
+                </div>
+                <button class="quote-btn next" onclick="changeQuote(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <img id="modal-image" alt="">
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <div class="modal-details">
+                        <span><strong>Year:</strong> <span id="modal-year"></span></span>
+                        <span><strong>Medium:</strong> <span id="modal-medium"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Background Audio -->
+    <audio id="background-audio" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/mpeg">
+    </audio>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <script src="script3.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
