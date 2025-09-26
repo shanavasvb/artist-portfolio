@@ -533,38 +533,44 @@ function initializeAudio() {
     });
 }
 
-// Theme Switcher
 function initializeTheme() {
-    if (!themeSwitcher) return;
+  if (!themeSwitcher) return;
+  
+  // Check for saved theme preference or default to 'light'
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  currentTheme = savedTheme;
+  
+  // Apply theme immediately on page load
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeButton();
+  
+  // Theme toggle functionality
+  themeSwitcher.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    updateThemeButton();
     
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        currentTheme = savedTheme;
-        updateThemeButton();
-    }
-    
-    // Theme toggle functionality
-    themeSwitcher.addEventListener('click', () => {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        localStorage.setItem('theme', currentTheme);
-        
-        updateThemeButton();
-    });
+    // Add smooth transition effect
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    setTimeout(() => {
+      document.body.style.transition = '';
+    }, 300);
+  });
 }
 
 function updateThemeButton() {
-    if (!themeSwitcher) return;
-    
-    if (currentTheme === 'dark') {
-        themeSwitcher.innerHTML = '<i class="fas fa-sun"></i>';
-        themeSwitcher.setAttribute('title', 'Switch to Light Mode');
-    } else {
-        themeSwitcher.innerHTML = '<i class="fas fa-moon"></i>';
-        themeSwitcher.setAttribute('title', 'Switch to Dark Mode');
-    }
+  if (!themeSwitcher) return;
+  
+  if (currentTheme === 'dark') {
+    themeSwitcher.innerHTML = '<i class="fas fa-sun"></i>';
+    themeSwitcher.setAttribute('title', 'Switch to Light Mode');
+    themeSwitcher.classList.add('dark-mode');
+  } else {
+    themeSwitcher.innerHTML = '<i class="fas fa-moon"></i>';
+    themeSwitcher.setAttribute('title', 'Switch to Dark Mode');
+    themeSwitcher.classList.remove('dark-mode');
+  }
 }
 
 // Parallax Effect
