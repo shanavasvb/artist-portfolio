@@ -513,6 +513,17 @@ function animateSkillBars() {
         skillsObserver.observe(bar);
     });
 }
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      console.warn(`Element with ID '${sectionId}' not found.`);
+    }
+  }
 
 // Audio Player
 function initializeAudio() {
@@ -640,42 +651,28 @@ function initializeTextEffects() {
 
 // Masonry Layout
 function initializeMasonry() {
-    const gallery = document.getElementById('gallery-grid');
-    
-    if (!gallery) return;
-    
-    // Simple masonry layout
-    const items = gallery.querySelectorAll('.gallery-item');
-    const columns = 3; // For mobile, adjust this with media queries
-    
-    // Reset positions
-    items.forEach(item => {
-        item.style.marginTop = '0';
+  const gallery = document.getElementById('gallery-grid');
+  if (!gallery) return;
+
+  const items = gallery.querySelectorAll('.gallery-item');
+  
+  // Remove any inline styles that might cause overlapping
+  items.forEach(item => {
+    item.style.marginTop = '';
+    item.style.position = '';
+    item.style.top = '';
+    item.style.left = '';
+  });
+  
+  // Make items visible with smooth animation
+  setTimeout(() => {
+    items.forEach((item, index) => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+      item.style.animationDelay = `${index * 0.1}s`;
+      item.classList.add('gallery-item-animate');
     });
-    
-    // Only run on larger screens
-    if (window.innerWidth >= 768) {
-        for (let i = columns; i < items.length; i++) {
-            const itemAbove = items[i - columns];
-            const currentItem = items[i];
-            
-            // Calculate offset
-            const heightDifference = itemAbove.clientHeight / 3;
-            
-            // Apply offset
-            if (i % 2 === 0) {
-                currentItem.style.marginTop = `-${heightDifference}px`;
-            }
-        }
-    }
-    
-    // Make items visible after layout is done
-    setTimeout(() => {
-        items.forEach(item => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        });
-    }, 200);
+  }, 100);
 }
 
 // Timeline Animation
