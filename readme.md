@@ -169,4 +169,3 @@ This project is open source and available under the [MIT License](LICENSE).
 
 > "Just like Frida Kahlo painted her reality, this portfolio was crafted with passion, creativity, and determination. Winning first prize in just 2 hours proves that with focused effort and technical skills, amazing things can be achieved!" 
 
-**#Takshak #WebDesign #FirstPrize #MCAKothamangalam #FridaKahlo**
